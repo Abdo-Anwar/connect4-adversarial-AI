@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect 4 – Adversarial AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Connect 4 &mdash; Adversarial AI</h1>
+    </header>
+
+    <div id="controls">
+        <div class="control-group">
+            <label for="algorithm">Algorithm:</label>
+            <select id="algorithm">
+                <option value="minimax">Minimax</option>
+                <option value="alphabeta" selected>Alpha‑Beta Pruning</option>
+                <option value="expectimax">Expectimax</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="depth">Depth:</label>
+            <input type="range" id="depth" min="1" max="7" value="4">
+            <span id="depth-value">4</span>
+        </div>
+        <button id="new-game">New Game</button>
+    </div>
+
+    <div id="game-area">
+        <div id="board-section">
+            <div id="status">Your turn – click a column!</div>
+            <div id="board"></div>
+        </div>
+        <div id="tree-section">
+            <h2>Search Tree <span id="tree-stats"></span></h2>
+            <div id="tree-container">
+                <svg id="tree-svg"></svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/game.js"></script>
+</body>
+</html>
