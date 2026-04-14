@@ -149,7 +149,6 @@ def alpha_beta(board, depth, alpha, beta, maximizing_player, record_tree=False):
                                        children=child_tree.get("children", [])
                                        if child_tree else [])
                 child_node["score"] = new_score
-                pruned = False
             else:
                 _, new_score = alpha_beta(
                     new_board, depth - 1, alpha, beta, False

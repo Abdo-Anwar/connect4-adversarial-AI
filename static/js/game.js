@@ -140,8 +140,8 @@
 
     /* ---- Tree visualisation ---- */
     const NODE_R = 16;
-    const H_GAP = 8;
-    const V_GAP = 60;
+    const HORIZONTAL_GAP = 8;
+    const VERTICAL_GAP = 60;
 
     function countNodes(node) {
         if (!node) return 0;
@@ -155,7 +155,7 @@
         if (!node) return null;
         const kids = (node.children || []).map((c) => layoutTree(c, depth + 1));
         const childrenWidth = kids.reduce((s, k) => s + k.width, 0)
-            + Math.max(0, kids.length - 1) * H_GAP;
+            + Math.max(0, kids.length - 1) * HORIZONTAL_GAP;
         const myWidth = Math.max(NODE_R * 2 + 4, childrenWidth);
 
         return { node, depth, width: myWidth, kids };
@@ -166,8 +166,8 @@
         layout.y = y;
         let cx = x;
         for (const kid of layout.kids) {
-            positionTree(kid, cx, y + V_GAP);
-            cx += kid.width + H_GAP;
+            positionTree(kid, cx, y + VERTICAL_GAP);
+            cx += kid.width + HORIZONTAL_GAP;
         }
     }
 
@@ -228,7 +228,7 @@
 
         const svgW = layout.width + 40;
         const maxDepth = findMaxDepth(layout);
-        const svgH = maxDepth * V_GAP + NODE_R * 2 + 30;
+        const svgH = maxDepth * VERTICAL_GAP + NODE_R * 2 + 30;
         treeSvg.setAttribute("width", svgW);
         treeSvg.setAttribute("height", svgH);
         treeSvg.setAttribute("viewBox", `0 0 ${svgW} ${svgH}`);
